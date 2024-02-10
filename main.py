@@ -28,3 +28,4 @@ for title in titles:
     
 
 playlist_id = sp.user_playlist_create(user_id, name=f"{date_to_travel} Billboard 100", public=False)['id']
+sp.user_playlist_add_tracks(user_id, playlist_id, song_uri)
