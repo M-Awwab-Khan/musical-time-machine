@@ -3,7 +3,6 @@ import requests
 import spotipy
 import os
 from spotipy.oauth2 import SpotifyOAuth
-from pprint import pprint
 
 SPOTIPY_CLIENT_ID = os.getenv('SPOTIPY_CLIENT_ID')
 SPOTIPY_CLIENT_SECRET = os.getenv('SPOTIPY_CLIENT_SECRET')
