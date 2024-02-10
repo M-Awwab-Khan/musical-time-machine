@@ -25,3 +25,6 @@ for title in titles:
         print(f"{title} doesn't exist in Spotify. Skipped.")
     else:
         song_uri.append(uri)
+    
+
+playlist_id = sp.user_playlist_create(user_id, name=f"{date_to_travel} Billboard 100", public=False)['id']
