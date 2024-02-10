@@ -15,5 +15,13 @@ response = requests.get(f'https://www.billboard.com/charts/hot-100/{date_to_trav
 
 soup = BeautifulSoup(response.text, 'html.parser')
 titles= [item.text.strip() for item in soup.select("li ul li h3")]
-results = sp.search(q=f"track: {titles[0]} year: {date_to_travel.split('-')[0]}", limit=1)
-pprint(results)
+song_uri = []
+
+for title in titles:
+    result = sp.search(q=f"track: {title} year: {date_to_travel.split('-')[0]}")
+    try:
+        uri = result["tracks"]["items"][0]["uri"]
+    except IndexError:
+        print(f"{title} doesn't exist in Spotify. Skipped.")
+    else:
+        song_uri.append(uri)
